@@ -1,0 +1,108 @@
+javascript
+
+let counter = document.querySelector('.counter');
+const addcount = document.querySelector('#Higher');
+const subcount = document.querySelector('#Lower');
+
+let count = 0;
+
+addcount.addEventListener('click', increment);
+subcount.addEventListener('click', decrement);
+
+function increment (){
+    count++;
+    counter.innerHTML = count;
+    if(counter.innerHTML>'0'){
+        counter.style.color = 'Green'
+    }
+    else if(counter.innerHTML==='0'){
+        counter.style.color = 'yellow'
+    }
+    counter.animate([{opacity:'0.2'}, {opacity: 1.0}],{duration:200,fill:'forwards'});
+};
+
+function decrement (){
+    count--;
+    counter.innerHTML = count;
+    if(counter.innerHTML<'0'){
+        counter.style.color = 'red'
+    }
+    else if(counter.innerHTML==='0'){
+        counter.style.color = 'yellow'
+
+    }
+    counter.animate([{opacity:'0.2'}, {opacity: 1.0}],{duration:1000,fill:'forwards'});
+
+};
+
+
+css
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: burlywood;
+  color: black;
+  text-transform: uppercase;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.counterBox {
+  background-color: thistle;
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid brown;
+  border-radius: 50%;
+  box-shadow: 3px 3px 10px 5px brown;
+}
+
+.counter {
+  font-size: 6rem;
+  padding: 2rem;
+}
+
+.btn {
+  font-size: 2rem;
+  margin: 1rem 0.25rem;
+  padding: 0.5rem 0.25rem;
+  background-color: #fff;
+  box-shadow: 1px 1px 8px 2px brown;
+  outline: none;
+  display: flex;
+}
+
+.btn:hover {
+  background-color: olivedrab;
+}
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>JS playground</title>
+</head>
+<body>
+    <div class="container">
+        <div class="counterBox">
+            <h1>counter</h1>
+            <div class="counter">0</div>
+            <div id="btns">
+                <button type="button" class="btn" id="Lower">Lower</button>
+                <button type="button" class="btn" id="Higher">Higher</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
